@@ -1,0 +1,22 @@
+# -*- mode: snippet -*-
+# name: vue ts store
+# key: vue-ts-store
+# --
+
+import { State, Mutation } from 'vuex-simple';
+
+import AuthStore from '@/store/store';
+import { BASE_API_URL } from '@/const';
+
+export default class $1Module {
+	private rootStore: AuthStore;
+	private appStore = getStore();
+	private api = this.appStore.state.api.api.createHttpClient({ baseUrl: BASE_API_URL });
+	private fsm;
+
+	constructor(rootStore: AuthStore) {
+		this.rootStore = rootStore;
+		this.fsm = this.rootStore.fsm;
+	}
+}
+$0

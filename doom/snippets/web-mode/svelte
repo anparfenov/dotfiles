@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: svelte component
+# key: sveltec
+# --
+<script>
+  $1
+</script>
+
+<style>
+  $2
+</style>
+
+$3

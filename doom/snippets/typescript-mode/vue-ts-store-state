@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: vue ts store state
+# key: vue-ts-store-state
+# --
+@State()
+public $1: $2 = $3;
+
+@Mutation()
+public $4($1: $2): void {
+    this.$1 = $1;
+}
+$0

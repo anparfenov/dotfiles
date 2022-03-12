@@ -1,0 +1,40 @@
+# -*- mode: snippet -*-
+# name: vue ts component
+# key: vue-ts-component
+# --
+
+<template>
+    <GridLayout :grid="grid" :grid-items="gridItems">
+    </GridLayout>
+</template>
+
+<script lang="ts">
+	import Vue from 'vue';
+	import { Component } from 'vue-property-decorator';
+
+	import $1 from '@/store/store';
+	import { $2 } from '@/templates/$3';
+
+	@Component({})
+	export default class $4 extends Vue {
+		private createReactiveLayout = this.$store.state.appLayout.api.createReactiveLayout;
+		protected layoutTemplate = this.createReactiveLayout($2);
+
+		store = $1.getInstance().$5;
+
+
+        protected get translation(): string {
+            return this.$t('translation');
+        }
+
+		protected get grid(): LAYOUT.Grid {
+			return this.layoutTemplate.grid;
+		}
+
+		protected get gridItems(): Array<LAYOUT.GridItem> {
+			return this.layoutTemplate.items;
+		}
+	}
+</script>
+
+<style scoped></style>
