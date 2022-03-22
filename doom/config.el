@@ -79,6 +79,8 @@
 
   (setq org-clock-into-drawer "CLOCKING")
 
+  (setq org-startup-folded t)
+
   (setq org-capture-templates
         '(("t" "Tasks")
           ("tt" "Task" entry (file+headline (concat org-directory "capture-notes.org"))
