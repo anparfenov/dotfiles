@@ -1,4 +1,5 @@
 local lspconfig = require('lspconfig')
+local null_ls = require("null-ls")
 local home = os.getenv('HOME')
 
 function merge_tables(a, b)
@@ -24,7 +25,6 @@ local servers = {
     "dartls",
     "zls"
 }
-
 
 local cmp = require'cmp'
 
@@ -69,6 +69,11 @@ cmp.setup.cmdline(':', {
             { name = 'cmdline' }
         })
 })
+
+function on_attach(client)
+    client.resolved_capabilities.document_formatting = false
+    client.resolved_capabilities.document_range_formatting = false
+end
 
 -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -132,27 +137,26 @@ require'lspconfig'.sumneko_lua.setup {
 vim.opt.completeopt = 'menuone,noinsert,noselect'
 vim.opt.shortmess = vim.opt.shortmess + 'c'
 
---[[ vim.g.ale_linters = {
-    typescript = {'eslint'},
-    javascript = { 'eslint' },
-    svelte = { 'eslint' },
-    vue = { 'eslint' },
-    css = { 'stylelint' },
-    scss = { 'stylelint' },
-    jsx = {'stylelint', 'eslint'},
-    go = {'gopls'}
+
+local sources = {
+    null_ls.builtins.formatting.prettier.with({
+        filetypes = { 
+            "html",
+            "json",
+            "yaml",
+            "markdown",
+            "typescript",
+            "javascript",
+            "svelte",
+            "vue",
+            "css",
+            "scss",
+            "jsx",
+        }
+    }),
+    null_ls.builtins.code_actions.gitsigns,
+    null_ls.builtins.diagnostics.luacheck,
+    null_ls.builtins.formatting.stylua,
 }
 
-vim.g.ale_fixers = {
-    ['*'] = {'remove_trailing_lines', 'trim_whitespace'},
-    javascript = { 'prettier', 'eslint' },
-    typescript = { 'prettier', 'eslint' },
-    ['javascript.jsx'] = { 'prettier', 'eslint' },
-    ['typescript.tsx'] = { 'prettier', 'eslint' },
-    json = { 'prettier' },
-    svelte = { 'prettier' },
-    vue = { 'prettier' },
-    html = { 'prettier' },
-    css = { 'stylelint' },
-    scss = { 'stylelint' },
-} ]]
+null_ls.setup({ sources = sources })

@@ -1,5 +1,4 @@
 require('plugins')
-require('globals')
 require('filetree')
 require('mappings')
 require('treesitter')

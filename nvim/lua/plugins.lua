@@ -18,6 +18,8 @@ return require('packer').startup(function()
     use 'hrsh7th/cmp-vsnip'
     use 'hrsh7th/vim-vsnip'
 
+    use 'jose-elias-alvarez/null-ls.nvim'
+
     use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 
     -- languages
@@ -43,16 +45,20 @@ return require('packer').startup(function()
     use 'jiangmiao/auto-pairs'
 
     -- coloschemes
-    --[[ use 'Th3Whit3Wolf/onebuddy'
+    --[[
+    use 'Th3Whit3Wolf/onebuddy'
     use 'sainnhe/everforest'
     use {'dracula/vim', as = 'dracula'}
     use 'folke/tokyonight.nvim'
     use 'yonlu/omni.vim'
     use 'ray-x/aurora'
     use 'rose-pine/neovim'
-    use 'projekt0n/github-nvim-theme'
     use 'bluz71/vim-nightfly-guicolors'
     use 'EdenEast/nightfox.nvim'
+    use 'junegunn/seoul256.vim'
      ]]
+    use 'mvpopuk/inspired-github.vim'
+    use 'habamax/vim-habaurora'
+    use 'projekt0n/github-nvim-theme'
     use "savq/melange"
 end)
