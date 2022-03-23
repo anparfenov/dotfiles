@@ -1,7 +1,7 @@
-require('utils')
+local utils = require('utils')
 
-vim.api.nvim_set_keymap('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', KEYMAP_OPTS)
-vim.api.nvim_set_keymap('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', KEYMAP_OPTS)
+vim.api.nvim_set_keymap('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', utils.merge_tables(KEYMAP_OPTS, { expr = true }))
+vim.api.nvim_set_keymap('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', utils.merge_tables(KEYMAP_OPTS, { expr = true }))
 
 -- See `:help vim.lsp.*` for documentation on any of the below functions
 vim.api.nvim_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', KEYMAP_OPTS)

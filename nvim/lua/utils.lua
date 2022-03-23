@@ -1,6 +1,6 @@
 local M = {}
 
-KEYMAP_OPTS = { noremap = true, silent= true }
+KEYMAP_OPTS = { noremap = true, silent = true }
 
 function M.is_buffer_empty()
   -- Check whether the current buffer is empty
@@ -16,6 +16,13 @@ function M.map(mode, lhs, rhs, opts)
   local options = {noremap = true}
   if vim.opts then options = vim.tbl_extend('force', options, opts) end
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+
+function M.merge_tables(a, b)
+    local c = {}
+    for k,v in pairs(a) do c[k] = v end
+    for k,v in pairs(b) do c[k] = v end
+    return c
 end
 
 return M

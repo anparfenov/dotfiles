@@ -1,13 +1,7 @@
+local utils = require('utils')
 local lspconfig = require('lspconfig')
 local null_ls = require("null-ls")
 local home = os.getenv('HOME')
-
-function merge_tables(a, b)
-    local c = {}
-    for k,v in pairs(a) do c[k] = v end
-    for k,v in pairs(b) do c[k] = v end
-    return c
-end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
@@ -87,7 +81,7 @@ for _, lsp in ipairs(servers) do
         }
     }
     if (lsp == 'ccls') then
-        options = merge_tables(options, {
+        options = utils.merge_tables(options, {
             init_options = {
                 compilationDatabaseDirectory = "build";
             }
@@ -95,7 +89,7 @@ for _, lsp in ipairs(servers) do
     elseif lsp == 'zls' then
         local zls_path = home .. '/Programs/zls/zig-out/bin/zls'
         print(zls_path)
-        options = merge_tables(options, {
+        options = utils.merge_tables(options, {
             cmd = { zls_path }
         })
     end
