@@ -173,7 +173,7 @@
 
 (map! :leader
       :desc "find org mode files"
-      "f o" (lambda () (interactive) (counsel-find-file "~/Documents/org")))
+      "f o" (lambda () (interactive) (+vertico/find-file-in "~/Documents/org")))
 
 ;; For moving between edit regions
 ;; (define-key evil-multiedit-state-map (kbd "C-n") 'evil-multiedit-next)
@@ -216,7 +216,6 @@
 ;;   :mode "\\.vue\\'"
 ;;   :config
 ;;   (add-hook 'vue-mode-hook #'lsp))
-
 
 (setq lsp-ui-sideline-show-code-actions nil)
 
