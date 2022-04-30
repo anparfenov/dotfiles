@@ -36,7 +36,7 @@ GTK_THEME="Ultimate-Maia-Blue"
 EDITOR=nvim
 # ================ ALIASES =============================
 alias zc="$EDITOR $ZDOTDIR/.zshrc"
-alias emacs="emacsclient -c -a 'emacs'"
+alias emacsc="emacsclient -c -a 'emacs'"
 alias sc="source $HOME/.zshrc"
 alias site="cd $MY_SITE_DIR && tmux new-session nvim"
 alias swayc="nvim $XDG_CONFIG_HOME/sway/config"

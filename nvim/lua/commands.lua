@@ -2,7 +2,7 @@
     themeStyle = 'light'
 }) ]]
 -- Colorscheme
-vim.cmd 'colorscheme github_light'
+vim.cmd 'colorscheme aurora'
 -- vim.g.rose_pine_variant = 'dawn'
 -- vim.g.edge_style = 'light'
 -- vim.g.tokyonight_style = "day"

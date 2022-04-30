@@ -17,7 +17,7 @@
 ;; + `doom-big-font' -- used for `doom-big-font-mode'; use this for
 ;;   presentations or streaming.
 ;;
-(setq font-family "Inconsolata")
+(setq font-family "FiraCode Nerd Font Mono")
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
 (setq doom-font (font-spec :family font-family :size 14)
@@ -54,8 +54,8 @@
 (after! org
   (setq org-todo-keywords
         (quote ((sequence "TODO(t)" "PROJ(p@)" "IN-PROGRESS(n)" "IDEA(i@)" "READING(r)" "|" "DONE(d@)")
-                (sequence "WAITING(w@/!)" "HOLD(h@/!)" "MEETING(m)" "|" "CANCELLED(c@/!)")
-                (sequence "REPORT(w@/!)" "BUG(b@/!)" "|" "FIXED(c@/!)"))))
+                (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)")
+                (sequence "BUG(b@/!)" "|" "FIXED(c@/!)"))))
 
   (setq org-todo-keyword-faces
         (quote (("TODO" :foreground "red" :weight bold)
@@ -102,14 +102,6 @@
   (if (string= task-state "IN-PROGRESS")
       "TODO"
     task-state))
-
-;; TODO
-;; (defun ap/insert-date-from-calendar ()
-;;   (interactive)
-;;   (calendar)
-;;   ((read-string "Enter date: "))
-;;   (let ((d (org-date-from-calendar)))
-;;     (message d)))
 
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
@@ -172,7 +164,7 @@
 (define-key evil-motion-state-map (kbd "RET") 'evil-multiedit-toggle-or-restrict-region)
 
 (map! :leader
-      :desc "find org mode files"
+      :desc "Find org mode files"
       "f o" (lambda () (interactive) (+vertico/find-file-in "~/Documents/org")))
 
 ;; For moving between edit regions
@@ -212,11 +204,6 @@
       :n "C-y" 'emmet-expand-yas
       :i "C-y" 'emmet-expand-yas)
 
-;; (use-package vue-mode
-;;   :mode "\\.vue\\'"
-;;   :config
-;;   (add-hook 'vue-mode-hook #'lsp))
-
 (setq lsp-ui-sideline-show-code-actions nil)
 
 ;; underscore as word
@@ -225,15 +212,3 @@
 
 (map! :desc "expand region"
       "M-=" 'er/expand-region)
-
-(use-package! zig-mode
-  :hook ((zig-mode . lsp-deferred))
-  :custom (zig-format-on-save nil)
-  :config
-  (after! lsp-mode
-    (add-to-list 'lsp-language-id-configuration '(zig-mode . "zig"))
-    (lsp-register-client
-      (make-lsp-client
-        :new-connection (lsp-stdio-connection (concat (getenv "HOME") "/Programs/zls/zig-out/bin/zig"))
-        :major-modes '(zig-mode)
-        :server-id 'zls))))

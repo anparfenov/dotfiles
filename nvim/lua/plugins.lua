@@ -51,6 +51,8 @@ return require("packer").startup(function()
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
 
+	use("tjdevries/colorbuddy.vim")
+
 	-- helpers
 	use("tpope/vim-surround")
 	use("tpope/vim-repeat")
@@ -74,4 +76,8 @@ return require("packer").startup(function()
 	use("habamax/vim-habaurora")
 	use("projekt0n/github-nvim-theme")
 	use("savq/melange")
+	use("rktjmp/lush.nvim")
+	use("metalelf0/jellybeans-nvim")
+	use("Mofiqul/vscode.nvim")
+	use("kvrohit/rasmus.nvim")
 end)

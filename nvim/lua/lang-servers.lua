@@ -9,13 +9,13 @@ local home = os.getenv("HOME")
 local servers = {
 	"html",
 	"tsserver",
-	-- "volar",
-	"vuels",
+	-- "volar", -- vue3
+	"vuels", -- vue2
 	"cssls",
 	"racket_langserver",
 	"svelte",
 	"pyright",
-	"intelephense",
+	"intelephense", -- php
 }
 
 local cmp = require("cmp")
@@ -37,7 +37,7 @@ cmp.setup({
 			c = cmp.mapping.close(),
 		}),
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
-		["<Tab>"] = cmp.mapping(function(fallback)
+		["<C-n>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
 			elseif luasnip.expand_or_jumpable() then
@@ -48,8 +48,7 @@ cmp.setup({
 				fallback()
 			end
 		end, { "i", "s" }),
-
-		["<S-Tab>"] = cmp.mapping(function(fallback)
+		["<C-p>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
 			elseif luasnip.jumpable(-1) then
@@ -164,7 +163,9 @@ local sources = {
 			"yaml",
 			"markdown",
 			"typescript",
+			"typescriptreact",
 			"javascript",
+			"javascriptreact",
 			"svelte",
 			"vue",
 			"css",

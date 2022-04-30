@@ -55,4 +55,4 @@ vim.api.nvim_set_keymap("n", "<A-x>", "<C-x>", KEYMAP_OPTS)
 vim.api.nvim_set_keymap("i", "<C-u>", "<C-g>u<C-u>", KEYMAP_OPTS)
 vim.api.nvim_set_keymap("i", "<C-w>", "<C-g>u<C-w>", KEYMAP_OPTS)
 
-vim.api.nvim_set_keymap("n", "<C-T>", ":lua MY.functions.change_theme()<cr>", KEYMAP_OPTS)
+vim.api.nvim_set_keymap("n", "<C-t>", ":lua MY.functions.change_theme()<cr>", KEYMAP_OPTS)
