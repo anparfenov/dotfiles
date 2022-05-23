@@ -67,3 +67,4 @@
 (package! humanoid-themes)
 (package! caddyfile-mode)
 (package! zig-mode)
+(package! org-modern)

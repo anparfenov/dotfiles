@@ -21,6 +21,7 @@ path+=("$HOME/.ghcup/bin")
 path+=("$HOME/.local/bin")
 path+=("$HOME/.config/emacs/bin")
 path+=("$HOME/.config/composer/vendor/bin")
+path+=("$HOME/Scripts")
 
 # Preserve MANPATH if you already defined it somewhere in your config.
 # Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.

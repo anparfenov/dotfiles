@@ -16,6 +16,8 @@ local servers = {
 	"svelte",
 	"pyright",
 	"intelephense", -- php
+    "zls",
+    "rust_analyzer",
 }
 
 local cmp = require("cmp")
@@ -98,6 +100,7 @@ for _, lsp in ipairs(servers) do
 			debounce_text_changes = 100,
 		},
 	}
+    local settings = {}
 	if lsp == "ccls" then
 		options = utils.merge_tables(options, {
 			init_options = {
@@ -114,8 +117,23 @@ for _, lsp in ipairs(servers) do
 		options = utils.merge_tables(options, {
 			cmd = { zls_path },
 		})
+    elseif lsp == "rust-analyzer" then
+        settings = {
+            ["rust-analyzer"] = {
+                assist = {
+                    importGranularity = "module",
+                    importPrefix = "self",
+                },
+                cargo = {
+                    loadOutDirsFromCheck = true
+                },
+                procMacro = {
+                    enable = true
+                },
+            }
+        }
 	end
-	lspconfig[lsp].setup(options)
+	lspconfig[lsp].setup({options, settings})
 end
 
 local sumneko_lua_root_path = home .. "/Programs/lua-language-server"

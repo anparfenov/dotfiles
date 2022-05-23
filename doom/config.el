@@ -35,13 +35,14 @@
 ;; (setq doom-theme 'doom-monokai-pro)
 ;; (setq doom-theme 'flatui)
 ;; (setq doom-theme 'avk-daylight)
-(setq doom-theme 'eclipse)
+;; (setq doom-theme 'eclipse)
 ;; (setq doom-theme 'humanoid-light)
 
+(global-org-modern-mode)
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/Documents/org/")
-(setq org-agenda-files '("~/Documents/org/my_2022.org" "~/Documents/org/koshelek-work_2022.org"))
+(setq org-agenda-files '("~/Documents/org/my_2022.org"))
 ;; maybe i should move these 2 lines to arfer! org
 (setq org-log-done 'time)
 (setq org-log-reschedule 'note)

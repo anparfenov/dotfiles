@@ -34,6 +34,7 @@ return require("packer").startup(function()
 	-- languages
 	use("ziglang/zig.vim")
 	use("wlangstroth/vim-racket")
+    use("lepture/vim-jinja")
 
 	-- ui
 	use({

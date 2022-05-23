@@ -1,10 +1,9 @@
 local utils = require('utils')
 
--- @see lang-servers.lua
---[[ vim.keymap.set('i', '<Tab>', function()
+--[[ vim.keymap.set('i', '<C-n>', function()
     return vim.fn.pumvisible() == 1 and '<C-n>' or '<Tab>'
 end, {expr = true})
-vim.keymap.set('i', '<S-Tab>', function()
+vim.keymap.set('i', '<C-p>', function()
     return vim.fn.pumvisible() == 1 and '<C-p>' or '<S-Tab>'
 end, {expr = true}) ]]
 
