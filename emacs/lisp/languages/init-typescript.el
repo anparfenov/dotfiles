@@ -1,7 +1,6 @@
 (use-package typescript-mode
   :ensure t
-  :mode ("\\.ts\\'" ("\\.tsx\\'" . typescriptreact-mode))
-  :after (tree-sitter)
+  :mode "\\.ts\\'"
   :hook
   ((typescript-mode js-mode typescriptreact-mode) . eglot-ensure)
   :config
@@ -11,8 +10,8 @@
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescriptreact-mode))
   (add-to-list 'tree-sitter-major-mode-language-alist '(typescriptreact-mode . tsx)))
 
-(if (functionp 'json-serialize)
-  (message "Native JSON is available")
-(message "Native JSON is *not* available"))
+;; (if (functionp 'json-serialize)
+;;   (message "Native JSON is available")
+;; (message "Native JSON is *not* available"))
 
 (provide 'init-typescript)

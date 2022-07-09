@@ -1,11 +1,13 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- multicursor
 vim.g.VM_maps = {
 	["Find Under"] = "<M-d>",
 	["Find Subword Under"] = "<M-d>",
-}
-
+	["Add Cursor at Position"] = "<M-a>",
+} 
+ 
 local utils = require("utils")
 require("mappings.files")
 require("mappings.lsp")

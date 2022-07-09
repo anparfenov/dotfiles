@@ -1,3 +1,5 @@
+vim.g.conceallevel = 0
+
 MY = { functions = {} }
 
 function MY.functions.change_theme()

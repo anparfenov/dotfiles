@@ -5,7 +5,6 @@
 (setq org-log-done 'time)
 (setq org-log-reschedule 'note)
 
-
 (setq org-todo-keyword-faces
       '(("TODO" . org-warning) ("STARTED" . "yellow")
         ("CANCELED" . (:foreground "blue" :weight bold))))
