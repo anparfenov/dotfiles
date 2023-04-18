@@ -1,5 +1,20 @@
 vim9script
 
+#  _   _ ________  ___ _____ _____ _____ _   _ ______ _____ _____ 
+# | | | |_   _|  \/  ||  _  /  __ \  _  | \ | ||  ___|_   _|  __ \
+# | | | | | | | .  . || |_| | /  \/ | | |  \| || |_    | | | |  \/
+# | | | | | | | |\/| |\____ | |   | | | | . ` ||  _|   | | | | __ 
+# \ \_/ /_| |_| |  | |.___/ / \__/\ \_/ / |\  || |    _| |_| |_\ \
+#  \___/ \___/\_|  |_/\____/ \____/\___/\_| \_/\_|    \___/ \____/
+                                                                
+# MANUAL
+# ----------
+# 1. Install vim-plug
+# curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# 2. Compile ycm
+# cd ~/.vim/plugged/YouCompleteMe && python3 install.py
+
+
 plug#begin('~/.vim/plugged')
 	Plug 'airblade/vim-gitgutter'
 	Plug 'editorconfig/editorconfig-vim'
@@ -16,9 +31,13 @@ plug#begin('~/.vim/plugged')
 	Plug 'leafgarland/typescript-vim'
 	Plug 'pangloss/vim-javascript'
 	Plug 'maxmellon/vim-jsx-pretty'
+	Plug 'justinmk/vim-sneak'
+	Plug 'ycm-core/YouCompleteMe'
 plug#end()
 
 #######################################################################################################
+
+&t_ut = ''
 
 if has('termguicolors')
 	set termguicolors
